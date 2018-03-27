@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Geospatial metadata sharing</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+
+  	<div class="reveal">
+			<div class="slides">
+        <section data-background='images/pano.gif'>
+          <h3 style="color:black;">Geospatial metadata sharing</h3>
+          <h2 style="color:black;" class="fragment">Or: How do I cite a place?</h2>
+          </br></br>
+
+          <h4 style="color:white;">Stuart Grieve (@GIStuart)</h4>
+          <h4>Univeristy College London</h4>
+        </section>
+
+        <section>
+          <h2>Problem</h2>
+          <p>Topographic data is key to geospatial science</p>
+          <img class="fragment plain" width="650" data-src="images/Hillshade_1.png" alt="OCR" style='vertical-align: middle'>
+        </section>
+
+        <section>
+          <p>The data is (nearly!) all open</p>
+          <p class="fragment">But people work on spatial subsets of the data</p>
+          <img class="fragment plain" width="550" data-src="images/oregon_coverage.png" alt="OCR" style='vertical-align: middle'>
+        </section>
+
+        <section>
+          <h2>Current 'solution'</h2>
+          <p>People cite the source dataset</p>
+          <p class="fragment">And never share/publish the subset they use</p>
+          <p class="fragment">Barrier to reproducibility</p>
+          </br></br>
+          <h3 style="color:red;" class="fragment">Emailing data</h4>
+        </section>
+
+        <section>
+        <h2>Better Solution</h2>
+        <p>Create some tools to compile relevant metadata into a file:</p>
+          <ul>
+            <li>Spatial bounding box (latitude/longitude)</li>
+            <li>Spatial Coordinate system (EPSG codes: http://spatialreference.org)</li>
+            <li>DOI of source data</li>
+            <li>DOI of paper (optional)</li>
+            <li>Other things?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Technologies</h2>
+          <p>Build upon OGC tools including RasterIO, Fiona, Shapely, GDAL, so could work in most languages.</p>
+
+          <p>Python</p>
+          <p>Javascript?</p>
+          <p>Metadata</p>
+
+        </section>
+
+        <section>
+          <h2>Vision</h2>
+          <p>Given a topographic dataset, press a button and get shareable metadata</p>
+          <p>Use this data to reconstruct the original topographic dataset from its source</p>
+        </section>
+
+      </div>
+    </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
